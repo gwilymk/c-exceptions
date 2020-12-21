@@ -56,11 +56,6 @@ catchMessage__(void)
     return currentException.message;
 }
 
-int catchType__(void)
-{
-    return currentException.type;
-}
-
 int catchHandled__(void)
 {
     bool oldWasCatchHandled = currentException.handled;

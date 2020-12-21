@@ -1,12 +1,11 @@
 CFLAGS = -std=gnu99 -Wall -Wextra -g
-
-OBJS = exceptions.o test_helper.o exceptions_test.o
+C_FILES = $(shell find -name '*.c')
 
 .PHONY: default
 default: test
 
-exceptions_test: $(OBJS)
-	$(CC) $(CFLAGS) -o exceptions_test $(OBJS)
+exceptions_test: $(C_FILES)
+	$(CC) $(CFLAGS) -o exceptions_test $(C_FILES)
 
 .PHONY: test
 test: exceptions_test

@@ -74,7 +74,6 @@ typedef struct
 int try__(const char *filename, int lineNumber);
 int catchHandled__(void);
 const char *catchMessage__(void);
-int catchType__(void);
 noreturn void throw__(int value, const char *message);
 noreturn void rethrow__(void);
 void endTry__(void);
@@ -152,7 +151,7 @@ typedef struct
 #define CATCH_ALL(e)                                                         \
     else if (tryData__.runFourTimes == 1 && tryData__.tryAttempt > 0 &&      \
              (catchHandled__() ||                                            \
-              1)) for (volatile Exception e = {.type = catchType__(),        \
+              1)) for (volatile Exception e = {.type = tryData__.tryAttempt, \
                                                .message = catchMessage__()}; \
                        (e).type != -1; (e).type = -1)
 
