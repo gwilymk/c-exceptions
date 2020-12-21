@@ -76,7 +76,7 @@ int catchHandled__(void);
 const char *catchMessage__(void);
 int catchType__(void);
 noreturn void throw__(int value, const char *message);
-void rethrow__(void);
+noreturn void rethrow__(void);
 void endTry__(void);
 
 /**
